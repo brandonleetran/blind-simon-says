@@ -96,7 +96,8 @@ button:hover, a:hover {
 
 a:focus, a:focus-visible,
 button:focus, button:focus-visible {
-    outline: 1px yellow solid;
+    border: 1px yellow solid;
+    outline: none;
 }
 
 .red {
