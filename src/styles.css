@@ -3,9 +3,15 @@ html, body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     overflow: hidden;
     margin: 0;
+    color: white;
 }
 
 h1 {
+    margin-top: 0;
+    display: inline-block;
+}
+
+h2 {
     margin-top: 0;
 }
 
@@ -27,31 +33,46 @@ code {
     color: white;
 }
 
-.game-round > span:first-child {
-    flex-basis: 100px; /* Adjust the width to your desired value */
-  }
-  
-.game-round {
+input {
+    padding: 0;
+}
+
+label {
+    margin-right: 5px;
+}
+.setting-group {
     display: flex;
-    justify-content: start;
-    align-items: center;
+}
+
+.game-btn {
+    max-width: 250px;
+    height: 0;
+    padding-bottom: 100%
 }
 
 .game-instructions, .select-instructions {
     margin-right: 15px;
 }
 
-.game-btn {
-    background-color: white;
-    border-radius: 5px;
-    padding: 15px;
-}
-
 #game-container {
     color: white;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#settings-container {
     display: flex;
-    gap: 10px;
     flex-direction: column;
+    gap: 20px;
+}
+
+.ib-title {
+    display: inline-block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
 .color {
@@ -94,10 +115,9 @@ button:hover, a:hover {
     cursor: pointer;
 }
 
+input:focus, input:focus-visible,
 a:focus, a:focus-visible,
 button:focus, button:focus-visible {
-    border: 1px yellow solid;
-    outline: none;
 }
 
 .red {

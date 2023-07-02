@@ -1,8 +1,8 @@
 let gameStarted = false
 let intervalId; 
-console.log("Welcome to Blind Simon Says!")
+console.log("Welcome to Accessible Simon Says!")
 
-const startButton = document.querySelector("#start-btn")
+//const startButton = document.querySelector("#start-btn")
 
 const focusableElements = document.querySelectorAll('input, button, select, textarea, a[href], area[href], object, embed, [tabindex]');
 const filteredFocusableElements = Array.from(focusableElements).filter(element => element.getAttribute('tabindex') !== '-1');
@@ -36,14 +36,14 @@ if (filteredFocusableElements.length > 0) {
 //     else startButton.style.background = "black"
 // });
 
-startButton.addEventListener("click", () => {
-    this.gameStarted = true
-    console.log(gameStarted)
-    document.body.style.background = "white"
-    // console.log("Starting Blind Simons Says...")
-    // const simonSays = new SimonSays()
-    // simonSays.startGame()
-})
+// startButton.addEventListener("click", () => {
+//     this.gameStarted = true
+//     console.log(gameStarted)
+//     document.body.style.background = "white"
+//     // console.log("Starting Accessible Simons Says...")
+//     // const simonSays = new SimonSays()
+//     // simonSays.startGame()
+// })
 
 class SimonSays {
     constructor() {

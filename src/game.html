@@ -3,45 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blind Simon Says</title>
+    <title>Accessible Simon Says</title>
     <link rel="stylesheet" href="styles.css"/>
     <script defer src="script.js"></script>
 </head>
 <body>
     <main>
+        <span style="position:absolute;right:0; bottom: 0; margin: 0; padding: 20px;" class="ib-title">By Brandon Tran</span>
         <div id="game-container">
-            <h1>Blind Simon Says</h1>
-
-            <div class="game-round">
-                <span class="game-instructions">Simon says...</span>
-                <button tabindex="-1" class="game-btn complete"></button>
+                <button class="game-btn red">
+                </button>
+                <button class="game-btn blue">
+                </button>
+                <button class="game-btn green">
+                </button>
+                <button class="game-btn yellow">
+                </button>
             </div>
-            <div class="game-round">
-                <span class="game-instructions">Simon says...</span>
-                <div class="btn-group">
-                    <button tabindex="-1" class="game-btn complete"></button>
-                    <button tabindex="-1" class="game-btn complete"></button>
-                </div>
-            </div>
-            <div class="game-round">
-                <span class="game-instructions">Simon says...</span>
-                <div class="btn-group">
-                    <button tabindex="-1" class="game-btn red"></button>
-                    <button tabindex="-1" class="game-btn yellow"></button>
-                    <button tabindex="-1" class="game-btn green"></button>
-                </div>
-            </div>
-            <div style="margin-top: 40px;" class="game-round">
-                <span class="select-instructions">Select color:</span>
-                <div class="btn-group">
-                    <button class="game-btn red"></button>
-                    <button class="game-btn yellow"></button>
-                    <button class="game-btn green"></button>
-                    <button class="game-btn blue"></button>
-                </div>
-            </div>
-            <span>Score: 2</span>
-        </div>
     </main>
 </body>
 </html>

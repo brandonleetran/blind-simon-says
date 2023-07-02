@@ -1,1 +1,1 @@
-# blind-simon-says
+# accessible-simon-says
