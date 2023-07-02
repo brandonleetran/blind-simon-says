@@ -2,30 +2,39 @@ let gameStarted = false
 let intervalId; 
 console.log("Welcome to Blind Simon Says!")
 
-const startButton = document.querySelector(".start-btn")
+const startButton = document.querySelector("#start-btn")
 
-startButton.addEventListener("focus", () => {
-    startButton.style.padding = "25px"
-    // Change the background color
-    console.log(intervalId)
-    if (!intervalId) {
-        intervalId = setInterval(() => {
-            let randomColor = ["red", "yellow", "green", "blue"][Math.floor(Math.random() * 4)]
-            startButton.style.background = randomColor
-        }, 500)
-    }
-    console.log(intervalId)
-})
+const focusableElements = document.querySelectorAll('input, button, select, textarea, a[href], area[href], object, embed, [tabindex]');
+const filteredFocusableElements = Array.from(focusableElements).filter(element => element.getAttribute('tabindex') !== '-1');
 
-startButton.addEventListener("blur", () => {
-    startButton.style.padding = "20px"
-    clearInterval(intervalId);
-    intervalId = undefined
+if (filteredFocusableElements.length > 0) {
+  // Set focus on the first focusable element
+  filteredFocusableElements[0].focus();
+}
 
-    // Element has lost focus
-    if (!this.gameStarted) startButton.style.background = "white"
-    else startButton.style.background = "black"
-});
+
+// startButton.addEventListener("focus", () => {
+//     startButton.style.padding = "25px"
+//     // Change the background color
+//     console.log(intervalId)
+//     if (!intervalId) {
+//         intervalId = setInterval(() => {
+//             let randomColor = ["red", "yellow", "green", "blue"][Math.floor(Math.random() * 4)]
+//             startButton.style.background = randomColor
+//         }, 500)
+//     }
+//     console.log(intervalId)
+// })
+
+// startButton.addEventListener("blur", () => {
+//     startButton.style.padding = "20px"
+//     clearInterval(intervalId);
+//     intervalId = undefined
+
+//     // Element has lost focus
+//     if (!this.gameStarted) startButton.style.background = "white"
+//     else startButton.style.background = "black"
+// });
 
 startButton.addEventListener("click", () => {
     this.gameStarted = true

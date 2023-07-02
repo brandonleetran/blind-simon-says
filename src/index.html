@@ -9,16 +9,19 @@
 </head>
 <body>
     <main>
-        <!-- <div class="color-container">
-            <button id="red" class="color color-inner-focus" tabindex="0" aria-label="select red"></button>
-            <button id="yellow" class="color color-inner-focus" tabindex="0" aria-label="select yellow"></button>
-            <button id="green" class="color color-inner-focus" tabindex="0" aria-label="select green"></button>
-            <button id="blue" class="color color-inner-focus" tabindex="0" aria-label="select blue"></button>
-        </div> -->
-        <div class="btn-container">
-            <button tabindex="0" class="start-btn" aria-label="Press enter to start Simon Says"></button>
+        <div class="start-container">
+            <h1>Blind Simon Says</h1>
+            <p class="instructions" id="start-instructions">Press the "Start" button to begin playing Simon Says.</p>
+            <p class="instructions" id="legend-instructions">Press the "Legend" button to read legend.</p>
+            <p class="instructions" id="settings-instructions">Press the "Settings" button to configure Simon Says.</p>
+            <nav>
+                <ul class="btn-group">
+                    <li><a href="game.html" id="start-btn" aria-label="Start" aria-describedby="game-instructions">Start</a></li>
+                    <li><a href="legend.html" id="legend-btn" aria-label="Legend" aria-describedby="Legend-instructions">Legend</a></li>
+                    <li><a href="settings.html" id="settings-btn" aria-label="Settings" aria-describedby="settings-instructions">Settings</a></li>
+                </ul>
+            </nav>
         </div>
-        <!-- <button class="start-btn" aria-label="end blind simon says">End Simmon Says</button> -->
     </main>
 </body>
 </html>
