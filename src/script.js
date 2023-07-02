@@ -4,7 +4,7 @@ console.log("Welcome to Accessible Simon Says!")
 
 //const startButton = document.querySelector("#start-btn")
 
-const focusableElements = document.querySelectorAll('input, button, select, textarea, a[href], area[href], object, embed, [tabindex]');
+const focusableElements = document.querySelectorAll('input:not([disabled]), button:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]:not([disabled]), area[href]:not([disabled]), object:not([disabled]), embed:not([disabled]), [tabindex]:not([disabled])');
 const filteredFocusableElements = Array.from(focusableElements).filter(element => element.getAttribute('tabindex') !== '-1');
 
 if (filteredFocusableElements.length > 0) {
