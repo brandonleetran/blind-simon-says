@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accessible Simon Says</title>
     <link rel="stylesheet" href="styles.css"/>
-    <script defer src="script.js"></script>
 </head>
 <body>
     <main>
         <h1>Accessible Simon Says</h1><span style="position:absolute;right:0; bottom: 0; margin: 0; padding: 20px;" class="ib-title">Beta</span>
-        <h2>High Score: 0</h2>
+        <h2>High Score: <span id="high-score">0</span></h2>
         <div class="start-container">
             <p class="instructions" id="start-instructions">Press the "Start" button to begin playing Simon Says.</p>
             <p class="instructions" id="legend-instructions">Press the "Legend" button to read legend.</p>
@@ -19,10 +18,16 @@
                 <ul class="btn-group">
                     <li><a href="game.html" id="start-btn" aria-label="Start" aria-describedby="start-instructions">Start</a></li>
                     <li><a href="legend.html" id="legend-btn" aria-label="Legend" aria-describedby="Legend-instructions">Legend</a></li>
+                    <li><a id="leaderboards-btn" aria-label="Leaderboards" aria-describedby="leaderboards-instructions">Leaderboards</a></li>
                     <li><a href="settings.html" id="settings-btn" aria-label="Settings" aria-describedby="settings-instructions">Settings</a></li>
                 </ul>
             </nav>
         </div>
     </main>
+    <script>
+        if (document.getElementById("high-score")) {
+            console.log(document.getElementById("high-score"))
+        }
+    </script>
 </body>
 </html>
