@@ -1,10 +1,10 @@
-const focusableElements = document.querySelectorAll('input:not([disabled]), button:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]:not([disabled]), area[href]:not([disabled]), object:not([disabled]), embed:not([disabled]), [tabindex]:not([disabled])');
-const filteredFocusableElements = Array.from(focusableElements).filter(element => element.getAttribute('tabindex') !== '-1');
+// const focusableElements = document.querySelectorAll('input:not([disabled]), button:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]:not([disabled]), area[href]:not([disabled]), object:not([disabled]), embed:not([disabled]), [tabindex]:not([disabled])');
+// const filteredFocusableElements = Array.from(focusableElements).filter(element => element.getAttribute('tabindex') !== '-1');
 
-if (filteredFocusableElements.length > 0) {
-  // Set focus on the first focusable element
-  filteredFocusableElements[0].focus();
-}
+// if (filteredFocusableElements.length > 0) {
+//   // Set focus on the first focusable element
+//   filteredFocusableElements[0].focus();
+// }
 
 class SimonSays {
     constructor() {
