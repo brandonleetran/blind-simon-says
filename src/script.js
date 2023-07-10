@@ -1,9 +1,9 @@
-// const focusableElements = document.querySelectorAll('input:not([disabled]), button:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]:not([disabled]), area[href]:not([disabled]), object:not([disabled]), embed:not([disabled]), [tabindex]:not([disabled])');
-// const filteredFocusableElements = Array.from(focusableElements).filter(element => element.getAttribute('tabindex') !== '-1');
+// const focusableElements = document.querySelectorAll('input:not([disabled]), button:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]:not([disabled]), area[href]:not([disabled]), object:not([disabled]), embed:not([disabled]), [tabindex]:not([disabled])')
+// const filteredFocusableElements = Array.from(focusableElements).filter(element => element.getAttribute('tabindex') !== '-1')
 
 // if (filteredFocusableElements.length > 0) {
 //   // Set focus on the first focusable element
-//   filteredFocusableElements[0].focus();
+//   filteredFocusableElements[0].focus()
 // }
 
 class SimonSays {
@@ -79,52 +79,57 @@ class SimonSays {
     
             // Initialization
             document.querySelectorAll(".game-dot").forEach(elem => elem.style.background = "white")
-            console.log("User says: ");
-            this.emptyUserArr();
+            console.log("User says: ")
+            this.emptyUserArr()
 
             const handleKeyDown = (event) => {
-                if (event.keyCode === 32) {
-                    const color = event.target.id;
-                    
-                    // add the users choice to the user array
-                    this.addUserArr(color);
+                console.log(event)
+                const color = event.target.id
+                console.log(color)
+                
+                // add the users choice to the user array
+                this.addUserArr(color)
 
-                    // then, compare the user array and simon array
-                    if (this.userArr[this.userArr.length - 1] !== this.simonArr[this.userArr.length - 1]) {
-                        this.isWrong = true;
-                        reject("Wrong! End game")
-                    }
-                    
-                    // only resolve when the userArr is the same as the simonArr
-                    // else, keep listening to user input
-                    if (this.userArr.length === this.simonArr.length) {
-                        this.score()
-                        document.getElementById("score").innerHTML = this.currentScore
-                        this.removeEventListeners(handleKeyDown);
-                        resolve();
-                    }
+                // then, compare the user array and simon array
+                if (this.userArr[this.userArr.length - 1] !== this.simonArr[this.userArr.length - 1]) {
+                    this.isWrong = true
+                    reject("Wrong! End game")
                 }
-            };
+                
+                // only resolve when the userArr is the same as the simonArr
+                // else, keep listening to user input
+                if (this.userArr.length === this.simonArr.length) {
+                    this.score()
+                    document.getElementById("score").innerHTML = this.currentScore
+                    this.removeEventListeners(handleKeyDown)
+                    resolve()
+                }
+            }
     
-        this.addEventListeners(handleKeyDown);
+        this.addEventListeners(handleKeyDown)
         }).catch(reject => console.log(reject))
-    };
+    }
 
 
     // ---------- EVENT HANDLER FUNCTIONS ----------
     addEventListeners = (handleKeyDown) => {
         this.colors.forEach((color) => {
-        const element = document.querySelector(`#${color}`);
-        element.addEventListener("keydown", handleKeyDown);
-        });
-    };
+            const element = document.querySelector(`#${color}`)
+            element.addEventListener("keydown", (event) => {
+                if (event.keyCode === 32) {
+                    handleKeyDown(event)
+                }
+            })
+            element.addEventListener("click", handleKeyDown)
+        })
+    }
     
     removeEventListeners = (handleKeyDown) => {
         this.colors.forEach((color) => {
-        const element = document.querySelector(`#${color}`);
-        element.removeEventListener("keydown", handleKeyDown);
-        });
-    };
+        const element = document.querySelector(`#${color}`)
+        element.removeEventListener("keydown", handleKeyDown)
+        })
+    }
 
     // ---------- COOKIE FUNCTIONS  ----------
     setCookie = (key, value) => {
