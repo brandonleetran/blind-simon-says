@@ -10,6 +10,7 @@ class SimonSays {
     constructor() {
         this.userArr = []
         this.simonArr = []
+        this.cookieName = "score"
         this.colors = ["red", "yellow", "green", "blue"]
         this.isWrong = false
         this.pace = 1
@@ -30,6 +31,16 @@ class SimonSays {
 
             // reset the focus after each turn
             document.getElementById("red").focus()
+        }
+
+        // if we beat our high score, update high score
+        if (this.cookieExists(this.cookieName)) {
+            const highScore = Number(this.getCookie(this.cookieName))
+            if (highScore < this.currentScore) this.setCookie("score", this.currentScore)
+        }
+        else
+        {
+            this.setCookie("score", this.currentScore)
         }
     }
 
@@ -114,8 +125,44 @@ class SimonSays {
         element.removeEventListener("keydown", handleKeyDown);
         });
     };
-  
 
+    // ---------- COOKIE FUNCTIONS  ----------
+    setCookie = (key, value) => {
+        if (navigator.cookieEnabled) {
+            console.log(`New high score: ${value}`)
+            document.cookie = `${key}=${value}`
+        }
+    }
+
+    getCookie = (key) => {
+        const arr = document.cookie.split("; ")
+        let value = 0
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].includes(key)) {
+                value = arr[i].substring(key.length + 1)
+                break
+            }
+        }
+
+        return value 
+    }
+
+    cookieExists = (key) => {
+        const cookie = document.cookie
+
+        if (cookie.length === 0)  return false
+
+        const arr = document.cookie.split("; ")
+        
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].includes(key)) {
+                return true
+            }
+        }
+
+        return false
+    }
+    
     // ---------- PURE HELPER FUNCTIONS ----------
     addUserArr = (color) => this.userArr.push(color)
 

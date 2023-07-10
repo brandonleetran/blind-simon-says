@@ -9,7 +9,7 @@
 <body>
     <main>
         <h1>Accessible Simon Says</h1><span style="position:absolute;right:0; bottom: 0; margin: 0; padding: 20px;" class="ib-title">Beta</span>
-        <h2>High Score: <span id="high-score">0</span></h2>
+        <h2>High Score: <span id="high-score"></span></h2>
         <div class="start-container">
             <p class="instructions" id="start-instructions">Press the "Start" button to begin playing Simon Says.</p>
             <p class="instructions" id="legend-instructions">Press the "Legend" button to read legend.</p>
@@ -24,8 +24,51 @@
         </div>
     </main>
     <script>
-        if (document.getElementById("high-score")) {
-            console.log(document.getElementById("high-score"))
+        const setCookie = (key, value) => document.cookie = `${key}=${value}`
+
+        //const setHighScore = () =>  document.getElementById("high-score") ? document.getElementById("high-score").textContent : 1
+
+        const deleteCookie = (key) => document.cookie = `${key}; expires=${Date.now() - 1}`
+        
+        const getCookie = (key) => {
+            const cookie = document.cookie
+            const arr = document.cookie.split("; ")
+            let value = 0
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].includes(key)) {
+                    value = arr[i].substring(key.length + 1)
+                    break
+                }
+            }
+
+            return value
+            
+        }
+        
+        const isCookie = (key) => {
+            const cookie = document.cookie
+
+            if (cookie.length === 0)  return false
+
+            const arr = document.cookie.split("; ")
+            
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].includes(key)) {
+                    return true
+                }
+            }
+
+            return false
+        }
+
+        if (navigator.cookieEnabled) {
+            if (!isCookie("score")) setCookie("score", 0)
+            else document.getElementById("high-score").innerText = getCookie("score")
+        }
+        else {
+            if (!isCookie("score")) deleteCookie("score")
+            document.getElementById("high-score").innerText = "0"
+            // TODO: ask user to enable cookies
         }
     </script>
 </body>
