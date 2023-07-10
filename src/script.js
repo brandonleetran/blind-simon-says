@@ -98,7 +98,7 @@ class SimonSays {
                 // only resolve when the userArr is the same as the simonArr
                 // else, keep listening to user input
                 if (this.userArr.length === this.simonArr.length) {
-                    this.score()
+                    if (!this.isWrong) this.score()
                     document.getElementById("score").innerHTML = this.currentScore
                     this.removeEventListeners(handleKeyDown)
                     resolve()
