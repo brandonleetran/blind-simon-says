@@ -83,7 +83,6 @@ class SimonSays {
             this.emptyUserArr()
 
             const handleKeyDown = (event) => {
-                console.log(event)
                 const color = event.target.id
                 console.log(color)
                 
@@ -116,7 +115,7 @@ class SimonSays {
         this.colors.forEach((color) => {
             const element = document.querySelector(`#${color}`)
             element.addEventListener("keydown", (event) => {
-                if (event.keyCode === 32) {
+                if (event.keyCode === 65) {
                     handleKeyDown(event)
                 }
             })
@@ -128,6 +127,7 @@ class SimonSays {
         this.colors.forEach((color) => {
         const element = document.querySelector(`#${color}`)
         element.removeEventListener("keydown", handleKeyDown)
+        element.removeEventListener("click", handleKeyDown)
         })
     }
 
