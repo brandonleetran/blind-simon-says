@@ -51,7 +51,7 @@ Usage :rocket:
 
 # Contributing :handshake:
 
-We welcome contributions to improve Blind Simon Says and make it even more accessible and enjoyable for everyone. If you have any suggestions, bug reports, or feature requests, please open an issue in this repository or reach out to us through the contact details provided below.
+I welcome contributions to improve Blind Simon Says and make it even more accessible and enjoyable for everyone. If you have any suggestions, bug reports, or feature requests, please open an issue in this repository or reach out to us through the contact details provided below.
 
 # License :scroll:
 
