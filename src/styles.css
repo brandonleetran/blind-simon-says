@@ -7,6 +7,23 @@ html, body {
     height: 100vh;
 }
 
+button, a  {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    transition: background-color 1s ease-in;
+    background-color: rgb(0 0 0);
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+    backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgb(255 255 255 / 18%);
+    display: inline-block;
+}
+
+button:hover, a:hover {
+    cursor: pointer;
+}
+
 dialog {
     z-index: 1000;
     position: absolute;
@@ -97,24 +114,6 @@ label {
     display: inline-block;
 }
 
-#game-container {
-    color: white;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-}
-
-#settings-container {
-    padding: 40px;
-    position: relative;
-}
-
-.start-container {
-    position: relative;
-    color: white;
-    padding: 40px;
-}
-
 .ib-title {
     display: inline-block;
     margin-bottom: 5px;
@@ -138,23 +137,6 @@ label {
     align-content: start;
 }
 
-button, a  {
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    transition: background-color 1s ease-in;
-    background-color: rgb(0 0 0);
-    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
-    backdrop-filter: blur( 20px );
-    border-radius: 10px;
-    border: 1px solid rgb(255 255 255 / 18%);
-    display: inline-block;
-}
-
-button:hover, a:hover {
-    cursor: pointer;
-}
-
 #red {
     background-color: red;
 }
@@ -169,4 +151,22 @@ button:hover, a:hover {
 
 #blue {
     background-color: blue;
+}
+
+#game-container {
+    color: white;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+#settings-container {
+    padding: 40px;
+    position: relative;
+}
+
+#start-container {
+    position: relative;
+    color: white;
+    padding: 40px;
 }
