@@ -63,7 +63,7 @@
 
         if (navigator.cookieEnabled) {
             if (!isCookie("score")) setCookie("score", 0)
-            else document.getElementById("high-score").innerText = getCookie("score")
+            document.getElementById("high-score").innerText = getCookie("score")
         }
         else {
             if (!isCookie("score")) deleteCookie("score")
