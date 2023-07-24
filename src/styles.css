@@ -21,11 +21,11 @@ dialog::backdrop {
 
 h1 {
     margin-top: 0;
-    display: inline-block;
 }
 
 h2 {
     margin-top: 0;
+    font-size: 20px;
 }
 
 main {
@@ -36,9 +36,13 @@ main {
 }
 
 section {
-    max-width: 500px;
-    padding: 40px;
     border: 3px solid white;
+}
+
+@media (max-width: 576px) {
+    section: {
+        max-width: auto;
+    }
 }
 
 nav {
@@ -60,8 +64,8 @@ input {
 label {
     margin-right: 5px;
 }
-.setting-group {
-    display: flex;
+.settings-group {
+    margin-bottom: 20px;
 }
 
 .game-btn {
@@ -69,6 +73,8 @@ label {
     height: 0;
     padding-bottom: 100%;
     position: relative;
+    border: 0;
+    border-radius: 0;
 }
 
 .game-btn:focus .game-dot {
@@ -96,13 +102,17 @@ label {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
 }
 
 #settings-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    padding: 40px;
+    position: relative;
+}
+
+.start-container {
+    position: relative;
+    color: white;
+    padding: 40px;
 }
 
 .ib-title {
@@ -127,11 +137,6 @@ label {
     justify-content: start;
     align-content: start;
     flex-wrap: wrap;
-}
-
-.start-container {
-    position: relative;
-    color: white;
 }
 
 button, a  {
