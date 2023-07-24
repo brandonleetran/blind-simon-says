@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "stylelint": "^15.10.2",
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "name": "blind-simon-says",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/brandonleetran/blind-simon-says.git",
+  "author": "brandonleetran <brandonleetran@icloud.com>",
+  "license": "MIT",
+  "dependencies": {}
+}

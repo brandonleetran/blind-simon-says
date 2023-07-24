@@ -40,7 +40,7 @@ section {
     border: 3px solid white;
 }
 
-@media (max-width: 576px) {
+@media (width <= 576px) {
     section: {
         max-width: auto;
     }
@@ -65,6 +65,7 @@ input {
 label {
     margin-right: 5px;
 }
+
 .settings-group {
     margin-bottom: 20px;
 }
@@ -74,10 +75,6 @@ label {
     position: relative;
     border-radius: 0;
     margin: 0;
-}
-
-.game-btn:focus .game-dot {
-    display: inline-block;
 }
 
 .game-instructions, .select-instructions {
@@ -94,6 +91,10 @@ label {
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
+}
+
+.game-btn:focus .game-dot {
+    display: inline-block;
 }
 
 #game-container {
@@ -130,12 +131,11 @@ label {
 .btn-group {
     padding-left: 0;
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     list-style: none;
     gap: 10px;
     justify-content: start;
     align-content: start;
-    flex-wrap: wrap;
 }
 
 button, a  {
@@ -143,24 +143,17 @@ button, a  {
     color: white;
     padding: 10px 20px;
     transition: background-color 1s ease-in;
-    background: rgba( 0, 0, 0, 0 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    background-color: rgb(0 0 0);
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
     backdrop-filter: blur( 20px );
-    -webkit-backdrop-filter: blur( 20px );
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgb(255 255 255 / 18%);
     display: inline-block;
 }
 
 button:hover, a:hover {
     cursor: pointer;
 }
-
-input:focus, input:focus-visible,
-a:focus, a:focus-visible,
-button:focus, button:focus-visible {
-}
-
 
 #red {
     background-color: red;
