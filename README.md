@@ -65,4 +65,4 @@ If you have any questions, feedback, or inquiries, you can reach us at:
     Twitter: @brandonleetran
     Website: https://www.blindsimonsays.com
 
-We hope you enjoy playing Blind Simon Says as much as we enjoyed creating it! Happy gaming! :smiley:
+I hope you enjoy playing Blind Simon Says as much as I enjoyed creating it! Happy gaming! :smiley:
