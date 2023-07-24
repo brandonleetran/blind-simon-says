@@ -4,6 +4,19 @@ html, body {
     overflow: hidden;
     margin: 0;
     color: white;
+    height: 100vh;
+}
+
+dialog {
+    z-index: 1000;
+    position: absolute;
+    color: white;
+    background-color: black;
+    padding: 40px;
+}
+
+dialog::backdrop {
+    background-color: black;
 }
 
 h1 {
@@ -16,9 +29,16 @@ h2 {
 }
 
 main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+section {
     max-width: 500px;
-    padding: 20px;
-    margin: 0 auto;
+    padding: 40px;
+    border: 3px solid white;
 }
 
 nav {
@@ -111,7 +131,6 @@ label {
 
 .start-container {
     position: relative;
-    height: 100vh;
     color: white;
 }
 
@@ -126,6 +145,7 @@ button, a  {
     -webkit-backdrop-filter: blur( 20px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    display: inline-block;
 }
 
 button:hover, a:hover {

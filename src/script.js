@@ -33,6 +33,12 @@ class SimonSays {
             document.getElementById("red").focus()
         }
 
+        // TODO: Wrap below code in an endGame() method
+        const dialog = document.querySelector("dialog") ?? null
+        if (dialog != null) {
+            dialog.showModal()
+        }
+
         // if we beat our high score, update high score
         if (this.cookieExists(this.cookieName)) {
             const highScore = Number(this.getCookie(this.cookieName))
