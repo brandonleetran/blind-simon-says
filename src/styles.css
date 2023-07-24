@@ -73,6 +73,7 @@ label {
     padding-bottom: 100%;
     position: relative;
     border-radius: 0;
+    margin: 0;
 }
 
 .game-btn:focus .game-dot {
