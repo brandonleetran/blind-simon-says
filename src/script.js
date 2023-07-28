@@ -36,6 +36,7 @@ class SimonSays {
         // TODO: Wrap below code in an endGame() method
         const dialog = document.querySelector("dialog") ?? null
         if (dialog != null) {
+            dialog.firstElementChild.innerHTML = `High score: ${this.currentScore}`
             dialog.showModal()
         }
 
