@@ -8,6 +8,7 @@ Blind Simon Says is an inclusive web app game that is designed for individuals w
     Features
     Gameplay
     Accessibility
+    Validation
     Installation
     Usage
     Contributing
@@ -17,7 +18,8 @@ Blind Simon Says is an inclusive web app game that is designed for individuals w
 # Description :clipboard:
 
 Blind Simon Says aims to provide a fun and engaging experience for players who are visually impaired. The game is designed with inclusive features, allowing players to use auditory and haptic cues for gameplay. Players can test their memory and listening skills while enjoying an accessible gaming experience. :muscle:
-Features :star2:
+
+# Features :star2:
 
     Inclusive gameplay for players with visual impairments.
     High contrast and customizable color schemes.
@@ -39,10 +41,17 @@ Accessibility is at the core of Blind Simon Says. The game adheres to the Web Co
     Alternative text for images and non-text elements.
     Compatibility with screen magnifiers.
 
+# Validation :white_check_mark:
+
+The HTML of Blind Simon Says has been validated using the W3C Markup Validation Service. It complies with industry standards, ensuring a reliable and consistent user experience.
+
+The Lighthouse scores for Blind Simon Says are exceptional, with all categories achieving a perfect score of 100. This reflects my commitment to providing an optimized and performant web app for all users.
+
 # Installation :computer:
 
 To play the Blind Simon Says game, simply visit the game website using a compatible web browser. There is no need for installation or downloads, making it accessible for anyone with an internet connection.
-Usage :rocket:
+
+# Usage :rocket:
 
     Visit the game website using a compatible web browser.
     Press the "Play" button to start the game.
