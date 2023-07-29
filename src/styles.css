@@ -134,6 +134,12 @@ label {
     opacity: .5;
 }
 
+.game-btn:focus {
+    outline: 0;
+    border: 0;
+    opacity: 1;
+}
+
 .game-btn-active {
     opacity: 1;
 }

@@ -66,8 +66,6 @@
     <script>
         const setCookie = (key, value) => document.cookie = `${key}=${value}`
 
-        //const setHighScore = () =>  document.getElementById("high-score") ? document.getElementById("high-score").textContent : 1
-
         const deleteCookie = (key) => document.cookie = `${key}; expires=${Date.now() - 1}`
         
         const getCookie = (key) => {

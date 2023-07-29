@@ -124,6 +124,8 @@ const score = () => currentScore++
 
 // ---------- EVENT HANDLER FUNCTIONS ----------
 const addEventListeners = (handleKeyDown) => {
+    // add event listeners for each color
+    // if event key is enter then user picked color
     colors.forEach((color) => {
         const element = document.querySelector(`#${color}`)
         element.addEventListener("keydown", (event) => {
@@ -133,14 +135,41 @@ const addEventListeners = (handleKeyDown) => {
         })
         element.addEventListener("click", handleKeyDown)
     })
+
+    // add trap focus for the buttons
+    const btnList = document.querySelectorAll(".game-btn")
+    const firstBtn = btnList[0]
+    const lastBtn = btnList[btnList.length - 1]
+    document.addEventListener("keydown", (event) => {
+        if (event.key === 'Tab') {
+            if (event.shiftKey) {
+                // going backwards (tab + shift)
+                if (document.activeElement === firstBtn) {
+                    event.preventDefault()
+                    lastBtn.focus()
+                }
+            }
+            else {
+                // going forwards (tab)
+                if (document.activeElement === lastBtn) {
+                    event.preventDefault()
+                    firstBtn.focus()
+                }
+            }
+        }
+    })
 }
 
 const removeEventListeners = (handleKeyDown) => {
+    // remove the event listeners so it doesn't interfere with simon
     colors.forEach((color) => {
         const element = document.querySelector(`#${color}`)
         element.removeEventListener("keydown", handleKeyDown)
         element.removeEventListener("click", handleKeyDown)
     })
+
+    // remove trap focus as well
+    document.activeElement.blur()
 }
 
 // ---------- COOKIE FUNCTIONS  ----------
