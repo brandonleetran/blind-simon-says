@@ -28,7 +28,7 @@ const simonsTurn = async () => {
                 // Schedule a timeout to remove the "color-active" class after 1 second
                 setTimeout(() => {
                     color.classList.remove("color-active");
-                }, 1000)
+                }, 500)
             }
 
             if (index === simonArr.length - 1) {
@@ -37,7 +37,7 @@ const simonsTurn = async () => {
             }
             index++
 
-        }, 2000)
+        }, 1000)
     })
 }
 
@@ -81,6 +81,7 @@ const usersTurn = async () => {
 const startGame = async() => {
     
     // we must await each turn or else it will execute synchronously 
+    // therefore, wait until the promise resolves until moving onto the turns
     while(!isWrong) {
         // simon's turn (returns a resolved promise.. this function will always resolve no matter what!)
         await simonsTurn()
@@ -88,6 +89,9 @@ const startGame = async() => {
         // user's turn (returns a resolved/rejected promise)
         await usersTurn()
     }
+
+    // game stops when the user is wrong
+    endGame()
 }
 
 // ---------- END GAME ----------
