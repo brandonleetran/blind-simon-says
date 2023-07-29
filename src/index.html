@@ -84,27 +84,22 @@
       <section>
         <div id="start-container">
           <h1>Blind Simon Says</h1>
-          <span
-            style="
-              position: absolute;
-              right: 0;
-              bottom: 0;
-              margin: 0;
-              padding: 20px;
-            "
-            class="label"
-            >Beta</span
-          >
+          <span class="signature">By Brandon lee Tran</span>
           <h2>High Score: <span id="high-score"></span></h2>
           <p class="instructions" id="start-instructions">
-            Press the "Start" button to begin playing Simon Says.
+            Press the "Start" button to begin playing Blind Simon Says.
           </p>
           <p class="instructions" id="legend-instructions">
-            Press the "Legend" button to read legend.
+            Press the "How to Play" button to learn how to play.
           </p>
-          <p class="instructions" id="settings-instructions">
-            Press the "Settings" button to configure Simon Says.
+          <p class="instructions" id="about-instructions">
+            Press the "About" button to learn about the game.
           </p>
+          <!--
+            <p class="instructions" id="settings-instructions">
+                Press the "Settings" button to configure Simon Says.
+            </p>
+            -->
           <nav>
             <ul class="btn-group">
               <li>
@@ -122,9 +117,19 @@
                   id="legend-btn"
                   aria-label="Legend"
                   aria-describedby="legend-instructions"
-                  >View Legend</a
+                  >How to Play</a
                 >
               </li>
+              <li>
+                <a
+                  href="about.html"
+                  id="about-btn"
+                  aria-label="About us"
+                  aria-describedby="about-instructions"
+                  >About Us</a
+                >
+              </li>
+              <!--
               <li>
                 <a
                   href="settings.html"
@@ -134,7 +139,7 @@
                   >View Settings</a
                 >
               </li>
-            </ul>
+            --></ul>
           </nav>
         </div>
       </section>

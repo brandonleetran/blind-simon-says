@@ -16,11 +16,15 @@ body {
   align-items: center;
 }
 
+section {
+  max-width: 500px;
+}
+
 main {
   height: 100%;
 }
 
-button:not(.game-btn),
+button:not(.game-btn, .tab-link),
 a {
   text-decoration: none;
   color: white;
@@ -51,12 +55,13 @@ dialog::backdrop {
   background-color: black;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   margin-top: 0;
 }
 
 h2 {
-  margin-top: 0;
   font-size: 20px;
 }
 
@@ -113,11 +118,12 @@ label {
   grid-gap: 10px;
 }
 
-#settings-container,
-#start-container {
+#start-container,
+#legend-container,
+#about-container,
+#settings-container {
   padding: 40px;
   color: white;
-  position: relative;
   border: 3px solid white;
 }
 
@@ -157,17 +163,61 @@ label {
   margin-right: 15px;
 }
 
-.label {
-  display: inline-block;
-  margin-bottom: 5px;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
 .sr-only {
   position: absolute;
   left: -9999px;
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.signature {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 20px;
+  display: inline-block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.tabpanel-hidden {
+  display: none;
+}
+
+.tabs {
+  display: flex;
+  gap: 20px;
+}
+
+[role="tablist"] {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+[role="tab"] {
+    background-color: transparent;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 0;
+}
+
+[role="tabpanel"] {
+    font-size: 14px;
+    border-radius: 3px;
+    color: white;
+    border: 3px solid white;
+    padding: 20px;
+    overflow: auto;
+    height: 250px;
+}
+
+button[role="tab"].tab-active,
+button[role="tab"]:focus {
+    color: black;
+    background-color: white;
 }
