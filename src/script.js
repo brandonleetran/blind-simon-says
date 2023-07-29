@@ -54,27 +54,31 @@ class SimonSays {
     // ---------- SIMONS TURN ----------
     simonsTurn = async () => {
         await new Promise(resolve => {
-
-            document.querySelectorAll(".game-dot").forEach(elem => elem.style.background = "black")
-
             // get a random color within the colors array
             let randomColor = this.colors[Math.floor(Math.random() * this.colors.length)]
 
             // add random color to the sequence
             this.simonArr.push(randomColor)
+
+            //console.log(this.simonArr)
             let index = 0
             console.log("Simon says: ")
             const intervalId = setInterval(() => {
-
+                
+                const color = document.getElementById(`${this.simonArr[index]}`)
+                console.log(`begin: ${color}`)
                 if (index < this.simonArr.length) {
-                    let color = this.simonArr[index]
-                    console.log(color)
-                    document.getElementById(`${color}`).focus()
-                    index++
+                    color.focus()
+                    color.classList.add("color-active")
+                    console.log(`if: ${color}`)
                 } else {
+                    console.log(`else: ${color}`)
                     clearInterval(intervalId)
+                    console.log(`else2: ${color}`)
                     resolve()
                 }
+                index++
+                console.log(`end: ${color}`)
 
             }, 1000)
         })
@@ -85,13 +89,11 @@ class SimonSays {
         await new Promise(async (resolve, reject) => {
     
             // Initialization
-            document.querySelectorAll(".game-dot").forEach(elem => elem.style.background = "white")
             console.log("User says: ")
             this.emptyUserArr()
 
             const handleKeyDown = (event) => {
                 const color = event.target.id
-                console.log(color)
                 
                 // add the users choice to the user array
                 this.addUserArr(color)
@@ -192,8 +194,3 @@ const simonSays = new SimonSays()
 setTimeout(() => {
     simonSays.startGame()
 }, 2000)
-
-// ------------------- index.html -------------------
-if (document.getElementById("high-score")) {
-    console.log(document.getElementById("high-score"))
-}
