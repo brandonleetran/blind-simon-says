@@ -60,7 +60,6 @@ class TabsAutomatic {
         tab.setAttribute("aria-selected", "false")
         tab.tabIndex = -1
         this.tabpanels[i].classList.add("tabpanel-hidden")
-
       }
     }
   }
