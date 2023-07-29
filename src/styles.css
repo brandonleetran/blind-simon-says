@@ -15,8 +15,6 @@ main, body {
 }
 
 main {
-    min-width: 500px;
-    width: 80vh;
     height: 100%;
 }
 
