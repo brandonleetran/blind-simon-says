@@ -1,196 +1,177 @@
-// const focusableElements = document.querySelectorAll('input:not([disabled]), button:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]:not([disabled]), area[href]:not([disabled]), object:not([disabled]), embed:not([disabled]), [tabindex]:not([disabled])')
-// const filteredFocusableElements = Array.from(focusableElements).filter(element => element.getAttribute('tabindex') !== '-1')
+const colors = ["red", "yellow", "green", "blue"]
+const cookieName = "score"
+const userArr = []
+const simonArr = []
+let isWrong = false
+let currentScore = 0
 
-// if (filteredFocusableElements.length > 0) {
-//   // Set focus on the first focusable element
-//   filteredFocusableElements[0].focus()
-// }
+// ---------- SIMONS TURN ----------
+const simonsTurn = async () => {
+    return await new Promise(resolve => {
+        // get a random color within the colors array
+        let randomColor = colors[Math.floor(Math.random() * colors.length)]
 
-class SimonSays {
-    constructor() {
-        this.userArr = []
-        this.simonArr = []
-        this.cookieName = "score"
-        this.colors = ["red", "yellow", "green", "blue"]
-        this.isWrong = false
-        this.pace = 1
-        this.level = 1
-        this.currentScore = 0
-    }
+        // add random color to the sequence
+        simonArr.push(randomColor)
 
-    startGame = async () => {
-        while(!this.isWrong) {
-            // simon's turn
-            await this.simonsTurn()
+        let index = 0
+        console.log("Simon says: ")
+        const intervalId = setInterval(() => {
 
-            // reset the focus after each turn
-            document.getElementById("red").focus()
-    
-            // user's turn
-            await this.usersTurn()
+            const color = document.getElementById(`${simonArr[index]}`)
 
-            // reset the focus after each turn
-            document.getElementById("red").focus()
-        }
+            if (color != null) {
+                color.classList.add("color-active")
 
-        // TODO: Wrap below code in an endGame() method
-        const dialog = document.querySelector("dialog") ?? null
-        if (dialog != null) {
-            dialog.firstElementChild.innerHTML = `Game score: ${this.currentScore}`
-            dialog.showModal()
-        }
-
-        // if we beat our high score, update high score
-        if (this.cookieExists(this.cookieName)) {
-            const highScore = Number(this.getCookie(this.cookieName))
-            if (highScore < this.currentScore) this.setCookie("score", this.currentScore)
-        }
-        else
-        {
-            this.setCookie("score", this.currentScore)
-        }
-    }
-
-    // ---------- SIMONS TURN ----------
-    simonsTurn = async () => {
-        await new Promise(resolve => {
-            // get a random color within the colors array
-            let randomColor = this.colors[Math.floor(Math.random() * this.colors.length)]
-
-            // add random color to the sequence
-            this.simonArr.push(randomColor)
-
-            //console.log(this.simonArr)
-            let index = 0
-            console.log("Simon says: ")
-            const intervalId = setInterval(() => {
+                console.log(color.id)
                 
-                const color = document.getElementById(`${this.simonArr[index]}`)
-                console.log(`begin: ${color}`)
-                if (index < this.simonArr.length) {
-                    color.focus()
-                    color.classList.add("color-active")
-                    console.log(`if: ${color}`)
-                } else {
-                    console.log(`else: ${color}`)
-                    clearInterval(intervalId)
-                    console.log(`else2: ${color}`)
-                    resolve()
-                }
-                index++
-                console.log(`end: ${color}`)
-
-            }, 1000)
-        })
-    }
-
-    // ---------- USERS TURN ----------
-    usersTurn = async () => {
-        await new Promise(async (resolve, reject) => {
-    
-            // Initialization
-            console.log("User says: ")
-            this.emptyUserArr()
-
-            const handleKeyDown = (event) => {
-                const color = event.target.id
-                
-                // add the users choice to the user array
-                this.addUserArr(color)
-
-                // then, compare the user array and simon array
-                if (this.userArr[this.userArr.length - 1] !== this.simonArr[this.userArr.length - 1]) {
-                    this.isWrong = true
-                    reject("Wrong! End game")
-                }
-                
-                // only resolve when the userArr is the same as the simonArr
-                // else, keep listening to user input
-                if (this.userArr.length === this.simonArr.length) {
-                    if (!this.isWrong) this.score()
-                    document.getElementById("score").innerHTML = this.currentScore
-                    this.removeEventListeners(handleKeyDown)
-                    resolve()
-                }
+                // Schedule a timeout to remove the "color-active" class after 1 second
+                setTimeout(() => {
+                    color.classList.remove("color-active");
+                }, 1000)
             }
+
+            if (index === simonArr.length - 1) {
+                clearInterval(intervalId)
+                resolve()
+            }
+            index++
+
+        }, 2000)
+    })
+}
+
+// ---------- USERS TURN ----------
+const usersTurn = async () => {
+    return await new Promise(async (resolve, reject) => {
+
+        // Initialization
+        console.log("User says: ")
+        emptyUserArr()
+
+        const handleKeyDown = (event) => {
+            const color = event.target.id
+
+            console.log(color)
+            
+            // add the users choice to the user array
+            addUserArr(color)
+
+            // then, compare the user array and simon array
+            if (userArr[userArr.length - 1] !== simonArr[userArr.length - 1]) {
+                isWrong = true
+                reject("End game")
+            }
+            
+            // only resolve when the userArr is the same as the simonArr
+            // else, keep listening to user input
+            if (userArr.length === simonArr.length) {
+                if (!isWrong) score()
+                document.getElementById("score").innerHTML = currentScore
+                removeEventListeners(handleKeyDown)
+                resolve()
+            }
+        }
+
+        addEventListeners(handleKeyDown) 
+    }).catch(reject => console.log(reject))
+}
+
+// ---------- START GAME ----------
+const startGame = async() => {
     
-        this.addEventListeners(handleKeyDown)
-        }).catch(reject => console.log(reject))
+    // we must await each turn or else it will execute synchronously 
+    while(!isWrong) {
+        // simon's turn (returns a resolved promise.. this function will always resolve no matter what!)
+        await simonsTurn()
+
+        // user's turn (returns a resolved/rejected promise)
+        await usersTurn()
     }
+}
 
+// ---------- END GAME ----------
+const endGame = () => {
+    const dialog = document.querySelector("dialog")
+       dialog.firstElementChild.innerHTML = `Game score: ${currentScore}`
+       dialog.showModal()
 
-    // ---------- EVENT HANDLER FUNCTIONS ----------
-    addEventListeners = (handleKeyDown) => {
-        this.colors.forEach((color) => {
-            const element = document.querySelector(`#${color}`)
-            element.addEventListener("keydown", (event) => {
-                if (event.keyCode === 65) {
-                    handleKeyDown(event)
-                }
-            })
-            element.addEventListener("click", handleKeyDown)
+       // if we beat our high score, update high score
+       if (cookieExists(cookieName)) {
+           const highScore = Number(getCookie(cookieName))
+           if (highScore < currentScore) setCookie("score", currentScore)
+       }
+       else
+       {
+           setCookie("score", currentScore)
+       }
+}
+
+// ---------- HELPER FUNCTIONS ----------
+const addUserArr = (color) => userArr.push(color)
+
+const emptyUserArr = () => userArr.length = 0
+    
+const score = () => currentScore++
+
+// ---------- EVENT HANDLER FUNCTIONS ----------
+const addEventListeners = (handleKeyDown) => {
+    colors.forEach((color) => {
+        const element = document.querySelector(`#${color}`)
+        element.addEventListener("keydown", (event) => {
+            if (event.keyCode === 65) {
+                handleKeyDown(event)
+            }
         })
-    }
-    
-    removeEventListeners = (handleKeyDown) => {
-        this.colors.forEach((color) => {
+        element.addEventListener("click", handleKeyDown)
+    })
+}
+
+const removeEventListeners = (handleKeyDown) => {
+    colors.forEach((color) => {
         const element = document.querySelector(`#${color}`)
         element.removeEventListener("keydown", handleKeyDown)
         element.removeEventListener("click", handleKeyDown)
-        })
-    }
+    })
+}
 
-    // ---------- COOKIE FUNCTIONS  ----------
-    setCookie = (key, value) => {
-        if (navigator.cookieEnabled) {
-            console.log(`New high score: ${value}`)
-            document.cookie = `${key}=${value}`
+// ---------- COOKIE FUNCTIONS  ----------
+const setCookie = (key, value) => {
+    if (navigator.cookieEnabled) {
+        console.log(`New high score: ${value}`)
+        document.cookie = `${key}=${value}`
+    }
+}
+
+const getCookie = (key) => {
+    const arr = document.cookie.split("; ")
+    let value = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(key)) {
+            value = arr[i].substring(key.length + 1)
+            break
         }
     }
 
-    getCookie = (key) => {
-        const arr = document.cookie.split("; ")
-        let value = 0
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i].includes(key)) {
-                value = arr[i].substring(key.length + 1)
-                break
-            }
-        }
+    return value 
+}
 
-        return value 
-    }
+const cookieExists = (key) => {
+    const cookie = document.cookie
 
-    cookieExists = (key) => {
-        const cookie = document.cookie
+    if (cookie.length === 0)  return false
 
-        if (cookie.length === 0)  return false
-
-        const arr = document.cookie.split("; ")
-        
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i].includes(key)) {
-                return true
-            }
-        }
-
-        return false
-    }
+    const arr = document.cookie.split("; ")
     
-    // ---------- PURE HELPER FUNCTIONS ----------
-    addUserArr = (color) => this.userArr.push(color)
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(key)) {
+            return true
+        }
+    }
 
-    emptyUserArr = () => this.userArr.length = 0
-    
-    score = () => this.currentScore++
-
-    endGame = () => this.simonSequenceArr = 0
+    return false
 }
 
 // ------------------- START OF SIMON SAYS -------------------
 console.log("Welcome to Accessible Simon Says!")
-const simonSays = new SimonSays()
-
-setTimeout(() => {
-    simonSays.startGame()
-}, 2000)
+startGame()
