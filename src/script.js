@@ -82,6 +82,10 @@ const startGame = async() => {
     
     // we must await each turn or else it will execute synchronously 
     // therefore, wait until the promise resolves until moving onto the turns
+
+    // why? well because i don't want the user to accidentally click on a button while simon is saying
+    // when its simon's turn.. it locks the user of any input
+    // is there a better way to do this? most likely...
     while(!isWrong) {
         // simon's turn (returns a resolved promise.. this function will always resolve no matter what!)
         await simonsTurn()
