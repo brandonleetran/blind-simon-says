@@ -1,10 +1,23 @@
 html, body {
     background-color: black;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    overflow: hidden;
-    margin: 0;
+    margin: auto;
     color: white;
     height: 100vh;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+main, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    min-width: 320px;
+    width: 80vh;
+    height: 100%;
 }
 
 button, a  {
@@ -43,18 +56,6 @@ h1 {
 h2 {
     margin-top: 0;
     font-size: 20px;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 0 20px;
-}
-
-section {
-    border: 3px solid white;
 }
 
 @media (width <= 576px) {
@@ -139,18 +140,22 @@ label {
 
 #red {
     background-color: red;
+    border-top-left-radius: 50%;
 }
 
 #yellow {
     background-color: yellow;
+    border-bottom-right-radius: 50%;
 }
 
 #green {
     background-color: green;
+    border-bottom-left-radius: 50%;
 }
 
 #blue {
     background-color: blue;
+    border-top-right-radius: 50%;
 }
 
 #game-container {
@@ -158,15 +163,13 @@ label {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
 }
 
-#settings-container {
-    padding: 40px;
-    position: relative;
-}
-
+#settings-container,
 #start-container {
-    position: relative;
-    color: white;
     padding: 40px;
+    color: white;
+    position: relative;
+    border: 3px solid white;
 }
