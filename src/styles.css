@@ -18,7 +18,7 @@ main {
     height: 100%;
 }
 
-button, a  {
+button:not(.game-btn), a  {
     text-decoration: none;
     color: white;
     padding: 10px 20px;
@@ -82,59 +82,6 @@ label {
     margin-right: 5px;
 }
 
-.settings-group {
-    margin-bottom: 20px;
-}
-
-.game-btn {
-    padding-bottom: 100%;
-    position: relative;
-    border-radius: 0;
-    margin: 0;
-    opacity: .5;
-}
-
-.color-active {
-    opacity: 1;
-}
-
-.game-instructions, .select-instructions {
-    margin-right: 15px;
-}
-
-.game-dot {
-    height: 25px;
-    width: 25px;
-    background-color: black;
-    display: none;
-    border-radius: 100%;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-}
-
-.game-btn:focus .game-dot {
-    display: inline-block;
-}
-
-.ib-title {
-    display: inline-block;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    font-size: 12px;
-}
-
-.btn-group {
-    padding-left: 0;
-    display: flex;
-    flex-flow: row wrap;
-    list-style: none;
-    gap: 10px;
-    justify-content: start;
-    align-content: start;
-}
-
 #red {
     background-color: red;
     border-top-left-radius: 50%;
@@ -156,7 +103,6 @@ label {
 }
 
 #game-container {
-    color: white;
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
@@ -169,4 +115,40 @@ label {
     color: white;
     position: relative;
     border: 3px solid white;
+}
+
+.btn-group {
+    padding-left: 0;
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    gap: 10px;
+    justify-content: start;
+    align-content: start;
+}
+
+.game-btn {
+    padding-bottom: 100%;
+    margin: 0;
+    border: 0;
+    opacity: .5;
+}
+
+.game-btn-active {
+    opacity: 1;
+}
+
+.settings-group {
+    margin-bottom: 20px;
+}
+
+.game-instructions, .select-instructions {
+    margin-right: 15px;
+}
+
+.label {
+    display: inline-block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
 }

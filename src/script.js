@@ -21,13 +21,13 @@ const simonsTurn = async () => {
             const color = document.getElementById(`${simonArr[index]}`)
 
             if (color != null) {
-                color.classList.add("color-active")
+                color.classList.add("game-btn-active")
 
                 console.log(color.id)
                 
-                // Schedule a timeout to remove the "color-active" class after 1 second
+                // Schedule a timeout to remove the "game-btn-active" class after 1 second
                 setTimeout(() => {
-                    color.classList.remove("color-active");
+                    color.classList.remove("game-btn-active");
                 }, 500)
             }
 
