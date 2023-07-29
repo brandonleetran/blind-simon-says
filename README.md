@@ -1,6 +1,7 @@
 # Blind Simon Says :video_game:
 
 Blind Simon Says is an inclusive web app game that is designed for individuals who are blind or visually impaired. It follows the Web Content Accessibility Guidelines (WCAG) to ensure that everyone can enjoy the game without any barriers. The game is based on the classic Simon Says game but adapted to be accessible and enjoyable for those with visual impairments. :raised_hands:
+
 # Table of Contents :scroll:
 
     Description

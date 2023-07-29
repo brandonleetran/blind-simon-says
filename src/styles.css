@@ -1,168 +1,173 @@
-html, body {
-    background-color: black;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    margin: auto;
-    color: white;
-    height: 100vh;
-    padding: 0 20px;
-    overflow: hidden;
+html,
+body {
+  background-color: black;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: auto;
+  color: white;
+  height: 100vh;
+  padding: 0 20px;
+  overflow: hidden;
 }
 
-main, body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
-    height: 100%;
+  height: 100%;
 }
 
-button:not(.game-btn), a  {
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    transition: background-color 1s ease-in;
-    background-color: rgb(0 0 0);
-    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
-    backdrop-filter: blur( 20px );
-    border-radius: 10px;
-    border: 1px solid rgb(255 255 255 / 18%);
-    display: inline-block;
+button:not(.game-btn),
+a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  transition: background-color 1s ease-in;
+  background-color: rgb(0 0 0);
+  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgb(255 255 255 / 18%);
+  display: inline-block;
 }
 
-button:hover, a:hover {
-    cursor: pointer;
+button:hover,
+a:hover {
+  cursor: pointer;
 }
 
 dialog {
-    z-index: 1000;
-    position: absolute;
-    color: white;
-    background-color: black;
-    padding: 40px;
+  z-index: 1000;
+  position: absolute;
+  color: white;
+  background-color: black;
+  padding: 40px;
 }
 
 dialog::backdrop {
-    background-color: black;
+  background-color: black;
 }
 
 h1 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 h2 {
-    margin-top: 0;
-    font-size: 20px;
+  margin-top: 0;
+  font-size: 20px;
 }
 
 @media (width <= 576px) {
-    section: {
-        max-width: auto;
-    }
+  section: {
+    max-width: auto;
+  }
 }
 
 nav {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 code {
-    background-color: transparent;
-    padding: 3px;
-    border: 1px solid white;
-    border-radius: 5px;
-    color: white;
+  background-color: transparent;
+  padding: 3px;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
 }
 
 input {
-    padding: 0;
+  padding: 0;
 }
 
 label {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 #red {
-    background-color: red;
-    border-top-left-radius: 50%;
+  background-color: red;
+  border-top-left-radius: 50%;
 }
 
 #yellow {
-    background-color: yellow;
-    border-bottom-right-radius: 50%;
+  background-color: yellow;
+  border-bottom-right-radius: 50%;
 }
 
 #green {
-    background-color: green;
-    border-bottom-left-radius: 50%;
+  background-color: green;
+  border-bottom-left-radius: 50%;
 }
 
 #blue {
-    background-color: blue;
-    border-top-right-radius: 50%;
+  background-color: blue;
+  border-top-right-radius: 50%;
 }
 
 #game-container {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 }
 
 #settings-container,
 #start-container {
-    padding: 40px;
-    color: white;
-    position: relative;
-    border: 3px solid white;
+  padding: 40px;
+  color: white;
+  position: relative;
+  border: 3px solid white;
 }
 
 .btn-group {
-    padding-left: 0;
-    display: flex;
-    flex-flow: row wrap;
-    list-style: none;
-    gap: 10px;
-    justify-content: start;
-    align-content: start;
+  padding-left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  gap: 10px;
+  justify-content: start;
+  align-content: start;
 }
 
 .game-btn {
-    padding-bottom: 100%;
-    margin: 0;
-    border: 0;
-    opacity: .5;
+  padding-bottom: 100%;
+  margin: 0;
+  border: 0;
+  opacity: 0.5;
 }
 
 .game-btn:focus {
-    outline: 0;
-    border: 0;
-    opacity: 1;
+  outline: 0;
+  border: 0;
+  opacity: 1;
 }
 
 .game-btn-active {
-    opacity: 1;
+  opacity: 1;
 }
 
 .settings-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-.game-instructions, .select-instructions {
-    margin-right: 15px;
+.game-instructions,
+.select-instructions {
+  margin-right: 15px;
 }
 
 .label {
-    display: inline-block;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    font-size: 12px;
+  display: inline-block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 .sr-only {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
