@@ -196,29 +196,30 @@ label {
 }
 
 .tabs {
+  margin-top: 40px;
   display: flex;
-  gap: 20px;
+  flex-flow: column-reverse;
 }
 
 [role="tablist"] {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
 }
 
 [role="tab"] {
   background-color: transparent;
   color: white;
   padding: 5px 10px;
-  border-radius: 3px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   border: 0;
 }
 
 [role="tabpanel"] {
-  font-size: 14px;
-  border-radius: 3px;
+  border-radius: 5px;
+  border: 2px solid white;
   color: white;
-  border: 3px solid white;
+  background-color: black;
   padding: 20px;
   overflow: auto;
   height: 250px;
