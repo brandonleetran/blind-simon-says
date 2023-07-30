@@ -196,7 +196,6 @@ label {
 }
 
 .tabs {
-  margin-top: 40px;
   display: flex;
   flex-flow: column-reverse;
 }
@@ -211,23 +210,19 @@ label {
   background-color: transparent;
   color: white;
   padding: 5px 10px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
   border: 0;
+  text-align: left;
 }
 
 [role="tabpanel"] {
-  border-radius: 5px;
-  border: 2px solid white;
   color: white;
-  background-color: black;
-  padding: 20px;
   overflow: auto;
   height: 250px;
+  margin-bottom: 20px;
 }
 
 button[role="tab"].tab-active,
 button[role="tab"]:focus {
-  color: black;
-  background-color: white;
+  color: white;
+  border-bottom: 2px solid white;
 }
