@@ -210,6 +210,7 @@ label {
   color: white;
   padding: 5px 10px;
   border: 0;
+  font-size: 14px;
   text-align: left;
 }
 
@@ -222,6 +223,5 @@ label {
 
 button[role="tab"].tab-active,
 button[role="tab"]:focus {
-  color: white;
   border-bottom: 2px solid white;
 }
