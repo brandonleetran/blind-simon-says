@@ -204,6 +204,7 @@ label {
 [role="tablist"] {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 [role="tab"] {
