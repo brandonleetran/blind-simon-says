@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "https://blindsimonsays.com/play",
+        "destination": "https://blindsimonsays.com/game.html"
+      }
+    ]
+  }
