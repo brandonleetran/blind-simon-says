@@ -1,8 +1,5 @@
 {
     "rewrites": [
-      {
-        "source": "/play",
-        "destination": "https://blindsimonsays.com/game.html"
-      }
+        { "source": "/play", "destination": "/game.html" }
     ]
   }
