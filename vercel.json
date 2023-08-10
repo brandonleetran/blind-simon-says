@@ -2,7 +2,7 @@
     "rewrites": [
       {
         "source": "/play",
-        "destination": "/game.html"
+        "destination": "https://blindsimonsays.com/game.html"
       }
     ]
   }
